@@ -18,7 +18,10 @@ export class RetrieveComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.metadata = this.itemMetadataService.getMetadata('');
-    this.keys = Object.keys(this.metadata.custom);
+    this.itemMetadataService.getMetadata('')
+      .then(metadata => {
+        this.metadata = metadata;
+        this.keys = Object.keys(this.metadata.custom)
+      });
   }
 }

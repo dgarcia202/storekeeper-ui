@@ -17,6 +17,7 @@ export class VolumesComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.volumes = this.volumeService.getVolumes();
+    this.volumeService.getVolumes()
+      .then(volumes => this.volumes = volumes);
   }
 }

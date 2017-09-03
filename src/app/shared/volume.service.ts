@@ -14,7 +14,7 @@ export class VolumeService {
 
   constructor() { }
 
-  getVolumes(): Volume[] {
-    return VOLUMES;
+  getVolumes(): Promise<Volume[]> {
+    return Promise.resolve(VOLUMES);
   }
 }

@@ -21,7 +21,7 @@ export class ItemMetadataService {
 
   constructor() { }
 
-  getMetadata(id : string) : ItemMetadata {
-    return METADATA;
+  getMetadata(id : string) : Promise<ItemMetadata> {
+    return Promise.resolve(METADATA);
   }
 }
