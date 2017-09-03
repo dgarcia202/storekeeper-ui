@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { Volume } from '../shared/volume';
+
 const VOLUMES: Volume[] = [
   { id: '1891240A877D4183AB68A487C8E030D7', path: '\\\\server001\\mnt\\datavol', active: true },
   { id: '1891240A877D4183AB68A487C8E030D7', path: '\\\\nasserver16\\volumes\\datastore2', active: false },
@@ -19,10 +21,4 @@ export class VolumesComponent implements OnInit {
   constructor() { }
 
   ngOnInit() { }
-}
-
-export class Volume {
-  id: string;
-  path: string;
-  active: boolean;
 }
