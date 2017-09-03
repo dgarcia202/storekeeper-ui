@@ -6,7 +6,14 @@ const METADATA : ItemMetadata = {
   id: '123456',
   name: 'one-little_file.xslx',
   size: 15026,
-  custom: {}
+  custom: {
+    onething: 'ffssfvsf',
+    anotherThing: 'ugibibi',
+    author: 'Alexander T.',
+    year: 2017,
+    views: 48,
+    rate: 5
+  }
 };
 
 @Component({
@@ -16,9 +23,13 @@ const METADATA : ItemMetadata = {
 })
 export class RetrieveComponent implements OnInit {
 
-  metadata = METADATA;
+  metadata : ItemMetadata;
+  keys : string[];
 
-  constructor() { }
+  constructor() {
+    this.metadata = METADATA;
+    this.keys = Object.keys(this.metadata.custom);
+  }
 
   ngOnInit() { }
 }

@@ -31,5 +31,9 @@
         <td>Size</td>
         <td>{{metadata.size}}</td>
       </tr>
+      <tr *ngFor="let key of keys">
+        <td>{{key}}</td>
+        <td>{{metadata.custom[key]}}</td>
+      </tr>
     </tbody>
 </table>
