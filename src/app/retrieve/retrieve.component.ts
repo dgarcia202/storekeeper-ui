@@ -1,35 +1,24 @@
 import { Component, OnInit } from '@angular/core';
 
 import { ItemMetadata } from '../shared/item-metadata';
-
-const METADATA : ItemMetadata = {
-  id: '123456',
-  name: 'one-little_file.xslx',
-  size: 15026,
-  custom: {
-    onething: 'ffssfvsf',
-    anotherThing: 'ugibibi',
-    author: 'Alexander T.',
-    year: 2017,
-    views: 48,
-    rate: 5
-  }
-};
+import { ItemMetadataService } from '../shared/item-metadata.service';
 
 @Component({
   selector: 'app-retrieve',
   templateUrl: './retrieve.component.html',
-  styleUrls: ['./retrieve.component.css']
+  styleUrls: ['./retrieve.component.css'],
+  providers: [ItemMetadataService]
 })
 export class RetrieveComponent implements OnInit {
 
-  metadata : ItemMetadata;
-  keys : string[];
+  metadata: ItemMetadata;
+  keys: string[];
 
-  constructor() {
-    this.metadata = METADATA;
-    this.keys = Object.keys(this.metadata.custom);
+  constructor(private itemMetadataService: ItemMetadataService) {
   }
 
-  ngOnInit() { }
+  ngOnInit() {
+    this.metadata = this.itemMetadataService.getMetadata('');
+    this.keys = Object.keys(this.metadata.custom);
+  }
 }
